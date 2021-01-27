@@ -1,0 +1,10 @@
+Answer
+Order in which processes are created:-
+New : the process is just created and is collecting the required resources.
+Ready : the process has all the resources but still is yet to be executed.
+Running : the process is running.
+Waiting/Sleeping : the processs is put on hold by processor.
+Terminated : the process is terminated.
+
+README :
+- enter './run.sh' to automatically change require files and build system.

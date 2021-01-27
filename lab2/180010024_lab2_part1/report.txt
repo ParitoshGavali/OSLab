@@ -1,0 +1,7 @@
+Answers:
+Minimum lines required for the program is around 10.
+
+README points
+- 'gmake hello' prints the 'Hello World' on console by different processes. 
+- 'gmake dev' prints the details of the developer.
+- 'gmake clean' removes unessesary files.
