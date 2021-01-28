@@ -304,7 +304,7 @@ static int schedule_process(struct schedproc * rmp, unsigned flags)
 
 	pick_cpu(rmp);
 	if (rmp->priority >= 7){
-		printf('PID %d swapped in\n',_ENDPOINT_P(rmp->endpoint));
+		printf("PID %d swapped in\n",_ENDPOINT_P(rmp->endpoint));
 	}
 
 	if (flags & SCHEDULE_CHANGE_PRIO)
