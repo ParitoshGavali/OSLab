@@ -113,6 +113,9 @@ int do_fork()
   new_pid = get_free_pid();
   rmc->mp_pid = new_pid;	/* assign pid to child */
 
+  // Paritosh
+  printf("Minix3: PID %d (timer %d) created!\n", new_pid,rmc->mp_timer);
+
   memset(&m, 0, sizeof(m));
   m.m_type = VFS_PM_FORK;
   m.VFS_PM_ENDPT = rmc->mp_endpoint;
@@ -242,6 +245,7 @@ int do_exit()
   }
   else {
       exit_proc(mp, m_in.m_lc_pm_exit.status, FALSE /*dump_core*/);
+      printf("Minix3: PID %d (timer %d)exited!\n", mp->mp_pid,mp->mp_timer); //Paritosh
   }
   return(SUSPEND);		/* can't communicate from beyond the grave */
 }
