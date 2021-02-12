@@ -101,7 +101,8 @@ int do_noquantum(message *m_ptr)
 
 	rmp = &schedproc[proc_nr_n];
 	if (rmp->priority < MIN_USER_Q) {
-		rmp->priority -= 1; /* lower priority */
+        // Paritosh : instead of decreasing priority I am increasing priority 
+		rmp->priority -= 1; /* higher priority */
 	}
 
 	if ((rv = schedule_process_local(rmp)) != OK) {
@@ -304,7 +305,8 @@ static int schedule_process(struct schedproc * rmp, unsigned flags)
 	int new_prio, new_quantum, new_cpu;
 
 	pick_cpu(rmp);
-
+    
+    // Paritosh : added this if statement
 	if(rmp->priority >= 7)
 		printf("Minix 3: <PID> %d swapped in\n", _ENDPOINT_P(rmp->endpoint));
 
@@ -361,6 +363,7 @@ static void balance_queues(minix_timer_t *tp)
 	for (proc_nr=0, rmp=schedproc; proc_nr < NR_PROCS; proc_nr++, rmp++) {
 		if (rmp->flags & IN_USE) {
 			if (rmp->priority > rmp->max_priority) {
+                // Paritosh commented this line 
 				// rmp->priority -= 1; /* increase priority */
 				schedule_process_local(rmp);
 			}

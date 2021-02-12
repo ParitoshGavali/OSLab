@@ -325,7 +325,7 @@ static int schedule_process(struct schedproc * rmp, unsigned flags)
 		rmp->endpoint, err);
 	}
 	//Paritosh
-	printf("Time slice of the process %d is %d\n",_ENDPOINT_P(rmp->endpoint),rmp->time_slice);
+	// printf("Time slice of the process %d is %d\n",_ENDPOINT_P(rmp->endpoint),rmp->time_slice);
 	return err;
 }
 
