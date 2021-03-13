@@ -111,6 +111,8 @@ int common_open(char path[PATH_MAX], int oflags, mode_t omode)
         omode = I_REGULAR | (omode & ALLPERMS & fp->fp_umask);
 	vp = new_node(&resolve, oflags, omode);
 	r = err_code;
+
+	struct vmnt *v_mp;
 	if (r == OK) {
 		exist = FALSE;	/* We just created the file */
 		// 180010024 Added my code here 
