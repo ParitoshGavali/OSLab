@@ -251,10 +251,10 @@ int read_write(struct fproc *rfp, int rw_flag, struct filp *f,
   //180010024 | My code
 	struct vmnt *vmp;
 	vmp = find_vmnt(vp->v_fs_e);
-	if (rw_flag == WRITING && strcmp(vmp->m_mount_path, "/home") == 0) {
+	if (rw_flag == WRITING && (strcmp(vmp->m_mount_path, "/home") == 0)) {
 		printf("<24|minix3> file write: %llu; nbytes = %zu; offset = %llu\n", vp->v_inode_nr, size, position);
 	}
-	if (rw_flag == READING && strcmp(vmp->m_mount_path, "/home") == 0) {
+	if (rw_flag == READING && (strcmp(vmp->m_mount_path, "/home") == 0)) {
 		printf("<24|minix3> file read: %llu; nbytes = %zu; offset = %llu\n", vp->v_inode_nr, size, position);
 	}
 
